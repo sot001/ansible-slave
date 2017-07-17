@@ -1,1 +1,1 @@
-slave container for spinning up to run ansible playbooks
+slave container for spinning up in Jenkins to run ansible playbooks
