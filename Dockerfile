@@ -14,10 +14,15 @@ RUN echo "===> Adding Ansible's prerequisites..."   && \
                 git software-properties-common      && \
     pip install --upgrade wheel setuptools          && \
     pip install --upgrade pyyaml jinja2 pycrypto    && \
+    echo 'deb http://http.debian.net/debian jessie-backports main' > /etc/apt/sources.list.d/backports.list  \
     DEBIAN_FRONTEND=noninteractive  \
-    apt-add-repository ppa:ansible/ansible -y && \
+    apt-get update -y            && \
     DEBIAN_FRONTEND=noninteractive  \
-    apt-get install ansible -y -q
+    apt-get -t jessie-backports install "ansible" -y -q && \
+    DEBIAN_FRONTEND=noninteractive  \
+    apt-get dist-upgrade -o Dpkg::Options::="--force-confold" -o Dpkg::Options::="--force-confdef" -y -q && \
+    DEBIAN_FRONTEND=noninteractive  \
+    apt-get autoremove -y
 
 USER jenkins
 
