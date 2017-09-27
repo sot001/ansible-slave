@@ -29,6 +29,7 @@ USER jenkins
 ENV PATH        /opt/ansible/bin:$PATH
 ENV PYTHONPATH  /opt/ansible/lib:$PYTHONPATH
 ENV MANPATH     /opt/ansible/docs/man:$MANPATH
+ENV SHELL       /bin/bash
 
 
 # default command: display Ansible version
