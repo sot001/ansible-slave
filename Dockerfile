@@ -24,6 +24,12 @@ RUN echo "===> Adding Ansible's prerequisites..."   && \
     DEBIAN_FRONTEND=noninteractive  \
     apt-get autoremove -y
 
+
+# push across any ssh stuff
+ADD ssh .ssh
+RUN chmod 700 .ssh
+RUN chown -R jenkins:jenkins .ssh
+
 USER jenkins
 
 ENV PATH        /opt/ansible/bin:$PATH
