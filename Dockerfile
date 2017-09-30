@@ -14,7 +14,7 @@ RUN echo "===> Adding Ansible's prerequisites..."   && \
                 git software-properties-common      && \
     pip install --upgrade wheel setuptools          && \
     pip install --upgrade pyyaml jinja2 pycrypto    && \
-    echo 'deb http://http.debian.net/debian jessie-backports main' > /etc/apt/sources.list.d/backports.list  \
+    echo 'deb http://http.debian.net/debian jessie-backports main' > /etc/apt/sources.list.d/backports.list  && \
     DEBIAN_FRONTEND=noninteractive  \
     apt-get update -y            && \
     DEBIAN_FRONTEND=noninteractive  \
