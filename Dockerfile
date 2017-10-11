@@ -29,6 +29,7 @@ RUN echo "===> Adding Ansible's prerequisites..."   && \
 ADD ssh .ssh
 RUN chmod 700 .ssh
 RUN chown -R jenkins:jenkins .ssh
+RUN pip install awscli boto boto3
 
 USER jenkins
 
